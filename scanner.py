@@ -1,13 +1,11 @@
 # import the necessary packages
 from pyimagesearch.transform import four_point_transform
 from skimage.filters import threshold_local
-import numpy as np
-import argparse
 import cv2
 import imutils
 
 # load the image and compute the ratio of the old height to the new height, clone it, and resize it
-imgpath="/home/jak/Desktop/open-cv/projetcs/scanner/images/page.jpg"
+imgpath="images/page.jpg"
 image=cv2.imread(imgpath,0)
 ratio = image.shape[0] / 500.0
 orig = image.copy()
@@ -60,3 +58,4 @@ print("STEP 3: Apply perspective transform")
 cv2.imshow("Original", imutils.resize(orig, height = 650))
 cv2.imshow("Scanned", imutils.resize(warped, height = 650))
 cv2.waitKey(0)
+cv2.destroyAllWindows()
